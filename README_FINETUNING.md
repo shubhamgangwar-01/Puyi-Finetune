@@ -8,11 +8,11 @@ A complete pipeline for generating synthetic personal memories and fine-tuning a
 
 This is the **recommended minimum** for effective fine-tuning with good results:
 
-| Dataset Size | Quality Level | Training Time | Use Case |
-|-------------|---------------|---------------|----------|
-| 1,000-2,000 | Basic | ~1 hour | Testing, proof of concept |
-| **2,000-3,000** | **Good** ✅ | **~1-2 hours** | **Personal use, recommended** |
-| 3,000-5,000+ | Production | ~2-4+ hours | High-quality deployment |
+| Dataset Size    | Quality Level | Training Time  | Use Case                      |
+| --------------- | ------------- | -------------- | ----------------------------- |
+| 1,000-2,000     | Basic         | ~1 hour        | Testing, proof of concept     |
+| **2,000-3,000** | **Good** ✅   | **~1-2 hours** | **Personal use, recommended** |
+| 3,000-5,000+    | Production    | ~2-4+ hours    | High-quality deployment       |
 
 ### Why 2,000 entries?
 
@@ -35,6 +35,7 @@ python generate_memories.py
 ```
 
 **Output:**
+
 - `data/raw/synthetic_memories.json` - Full dataset with metadata
 - `data/processed/synthetic_memories.json` - Alpaca format for training
 - `data/raw/persona.json` - Generated persona for consistency
@@ -46,6 +47,7 @@ python setup_llamafactory.py
 ```
 
 This will:
+
 - Copy dataset to LLaMA Factory
 - Register it in `dataset_info.json`
 - Verify dataset size and quality
@@ -58,6 +60,7 @@ python src/webui.py
 ```
 
 Then configure in Web UI:
+
 - **Model**: Llama-3.1-8B or similar
 - **Dataset**: synthetic_memories
 - **LoRA rank**: 8-32
@@ -141,26 +144,29 @@ val_split: 0.1
 
 ### Training Time Estimates
 
-| Setup | Time per Epoch | Total (3 epochs) |
-|-------|---------------|------------------|
-| RTX 3060, batch=4 | ~20-30 min | ~1-1.5 hours |
-| RTX 4090, batch=8 | ~10-15 min | ~30-45 min |
+| Setup             | Time per Epoch | Total (3 epochs) |
+| ----------------- | -------------- | ---------------- |
+| RTX 3060, batch=4 | ~20-30 min     | ~1-1.5 hours     |
+| RTX 4090, batch=8 | ~10-15 min     | ~30-45 min       |
 
 ## 📈 Monitoring Training
 
 ### Good Signs ✅
+
 - Training loss steadily decreasing
 - Validation loss following training loss
 - No overfitting (val loss ≈ train loss)
 - Model responses becoming more coherent
 
 ### Red Flags ❌
+
 - Training loss stuck or increasing
 - Validation loss much higher than training (overfitting)
 - NaN or Inf losses
 - GPU out of memory errors
 
 **Solutions:**
+
 - Reduce batch size if OOM
 - Adjust learning rate if stuck
 - Add more data if overfitting
@@ -194,11 +200,13 @@ Our 2,000-entry dataset provides:
 ### For Production (5,000+ entries):
 
 1. **Increase generation**:
+
    ```python
    NUM_ENTRIES = 5000
    ```
 
 2. **Use batch processing**:
+
    - Generate in chunks
    - Save progress incrementally
    - Resume if interrupted
@@ -211,19 +219,23 @@ Our 2,000-entry dataset provides:
 ## 🐛 Troubleshooting
 
 ### "Dataset too small" warning
+
 - Generate at least 1,000 entries
 - Current default (2,000) is recommended
 
 ### API rate limits
+
 - Increase `RATE_LIMIT_DELAY` to 1.0
 - Use Google AI Studio free tier wisely
 
 ### Out of memory during training
+
 - Reduce batch size to 2
 - Increase gradient accumulation to 16
 - Use gradient checkpointing
 
 ### Model not learning
+
 - Check dataset format
 - Verify proper registration in dataset_info.json
 - Increase learning rate slightly

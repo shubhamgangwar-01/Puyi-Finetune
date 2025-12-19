@@ -70,7 +70,4 @@ pip-delete-this-directory.txt
 .coverage
 htmlcov/
 
-# Generated datasets
-synthetic_memories*.json
-*_pairs.json
-all_chapters_training_data.json
+
