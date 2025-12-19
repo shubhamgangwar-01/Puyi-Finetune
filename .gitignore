@@ -1,0 +1,76 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment variables and secrets
+.env
+*.key
+*.pem
+
+# Data files
+*.pdf
+*.txt
+emperor_to_citizen_text.txt
+book_chapters/
+
+
+# LLaMA Factory
+LLaMA-Factory/
+
+# Model outputs and checkpoints
+models/
+checkpoints/
+*.bin
+*.safetensors
+*.ckpt
+*.pth
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# Distribution / packaging
+*.whl
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Generated datasets
+synthetic_memories*.json
+*_pairs.json
+all_chapters_training_data.json
