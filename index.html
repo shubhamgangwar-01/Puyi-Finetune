@@ -3,483 +3,623 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Immortality | The Staff Sergeant Jimmy Mitchell Project</title>
+    <title>Puyi Historical AI Project | Fine-Tuning Documentation</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <div class="nav-container">
-                <div class="nav-logo">Digital Immortality</div>
-                <ul class="nav-links">
-                    <li><a href="#story">The Story</a></li>
-                    <li><a href="#technical">Technical</a></li>
-                    <li><a href="#results">Results</a></li>
-                    <li><a href="#ethics">Ethics</a></li>
-                    <li><a href="#conclusion">Conclusion</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">Puyi Historical AI</div>
+            <ul class="nav-menu">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#dataset">Dataset</a></li>
+                <li><a href="#model">Model</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#applications">Applications</a></li>
+                <li><a href="#documentation">Documentation</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="hero-tag">Preserving Memory Through AI</div>
-            <h1 class="hero-title">The Staff Sergeant<br>Jimmy Mitchell Project</h1>
-            <p class="hero-subtitle">Synthetic Memory Generation + ERNIE-4.5-0.3B Fine-Tuning</p>
-            <div class="hero-meta">
-                <span class="hero-date">December 23, 2025</span>
-                <span class="hero-divider">|</span>
-                <span class="hero-category">Technical Implementation Report</span>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Fine-Tuning ERNIE-4.5-0.3B-PT</h1>
+                <p class="hero-subtitle">A Historical Conversational AI for Pu Yi, the Last Emperor of China</p>
+                <div class="hero-meta">
+                    <span>Author: Shubham Gangwar</span>
+                    <span>•</span>
+                    <span>December 2025</span>
+                    <span>•</span>
+                    <span>Version 1.0</span>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#overview" class="btn btn-primary">Explore Project</a>
+                    <a href="#documentation" class="btn btn-secondary">View Documentation</a>
+                </div>
             </div>
-            <a href="#story" class="hero-cta">Read His Story</a>
         </div>
     </section>
 
     <!-- Executive Summary -->
-    <section class="executive-summary">
-        <div class="container-narrow">
-            <div class="section-header">
-                <span class="section-tag">Executive Summary</span>
-                <h2 class="section-title">A Profound Intersection of Grief, Love, and Technology</h2>
-            </div>
-            
-            <div class="summary-content">
-                <p class="lead-text">This project represents a profound intersection of grief, love, technology, and memory. Using cutting-edge artificial intelligence, we have created a system that allows the loved ones of fallen soldier Staff Sergeant James Robert "Jimmy" Mitchell to continue conversations with him even after his death in combat at age 22.</p>
+    <section id="overview" class="section section-light">
+        <div class="container">
+            <h2 class="section-title">Executive Summary</h2>
+            <div class="content-box">
+                <p class="lead">This project presents a comprehensive approach to creating a fine-tuned Large Language Model specialized in generating contextually accurate and historically informed responses about Pu Yi (溥儀), the Last Emperor of China.</p>
                 
-                <p class="summary-text">By generating 2,000 synthetic personal memories and fine-tuning a small language model (ERNIE-4.5-0.3B), we have created a digital echo of Jimmy—a conversational AI that embodies his personality, memories, experiences, and voice. This enables his widow Sarah, his son Robert (whom he never met), his parents, and others who loved him to ask questions, share moments, and maintain an emotional connection.</p>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">7,411</div>
+                        <div class="metric-label">Training Pairs</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">0.3B</div>
+                        <div class="metric-label">Parameters</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">2.65 MB</div>
+                        <div class="metric-label">Dataset Size</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">9</div>
+                        <div class="metric-label">Chapters</div>
+                    </div>
+                </div>
             </div>
 
-            <div class="achievements-banner">
-                <h3>Project Achievements</h3>
-                <div class="achievements-grid">
-                    <div class="achievement-stat">
-                        <div class="stat-number">2,000+</div>
-                        <div class="stat-label">Synthetic Memories</div>
+            <div class="info-cards">
+                <div class="info-card">
+                    <h3>📚 Historical Background</h3>
+                    <p>Pu Yi (1906-1967) was the last Emperor of the Qing Dynasty, whose life spanned multiple political regimes from his ascension at age two through the fall of the Qing Dynasty, Japanese occupation, to his transformation as a citizen of the People's Republic of China.</p>
+                </div>
+                <div class="info-card">
+                    <h3>🎯 Project Motivation</h3>
+                    <ul>
+                        <li><strong>Historical Preservation:</strong> Creating an AI system that accurately conveys historical information in first-person narrative</li>
+                        <li><strong>Educational Tool:</strong> Interactive platform for learning early 20th-century Chinese history</li>
+                        <li><strong>NLP Research:</strong> Demonstrating domain-specific fine-tuning on historical content</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Pipeline -->
+    <section id="dataset" class="section">
+        <div class="container">
+            <h2 class="section-title">Data Pipeline Architecture</h2>
+            
+            <div class="pipeline-stages">
+                <div class="pipeline-stage">
+                    <div class="stage-number">1</div>
+                    <h3>PDF Extraction</h3>
+                    <p><strong>Tool:</strong> extract_pdf_text.py</p>
+                    <p><strong>Output:</strong> 200,000+ words from "From Emperor to Citizen"</p>
+                </div>
+                <div class="pipeline-arrow">→</div>
+                <div class="pipeline-stage">
+                    <div class="stage-number">2</div>
+                    <h3>Chapter Segmentation</h3>
+                    <p><strong>Tool:</strong> segment_chapters.py</p>
+                    <p><strong>Output:</strong> 9 chapter files covering entire life narrative</p>
+                </div>
+                <div class="pipeline-arrow">→</div>
+                <div class="pipeline-stage">
+                    <div class="stage-number">3</div>
+                    <h3>Pair Generation</h3>
+                    <p><strong>Model:</strong> Google Gemini 2.5 Flash</p>
+                    <p><strong>Output:</strong> 7,411 instruction-output pairs</p>
+                </div>
+                <div class="pipeline-arrow">→</div>
+                <div class="pipeline-stage">
+                    <div class="stage-number">4</div>
+                    <h3>Quality Assurance</h3>
+                    <p>JSON validation, deduplication, source attribution</p>
+                </div>
+                <div class="pipeline-arrow">→</div>
+                <div class="pipeline-stage">
+                    <div class="stage-number">5</div>
+                    <h3>LLaMA Factory Format</h3>
+                    <p>Alpaca-compatible JSON for fine-tuning</p>
+                </div>
+            </div>
+
+            <div class="dataset-details">
+                <h3>Dataset Composition</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Chapter</th>
+                            <th>Description</th>
+                            <th>Entries</th>
+                            <th>Percentage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Chapter 05</td>
+                            <td>Early Imperial Life</td>
+                            <td>706</td>
+                            <td>9.9%</td>
+                        </tr>
+                        <tr>
+                            <td>Chapter 06</td>
+                            <td>Birth & Origins</td>
+                            <td>890</td>
+                            <td>12.4%</td>
+                        </tr>
+                        <tr>
+                            <td>Chapter 06</td>
+                            <td>Soviet Period</td>
+                            <td>918</td>
+                            <td>12.8%</td>
+                        </tr>
+                        <tr>
+                            <td>Chapter 07</td>
+                            <td>Recognition</td>
+                            <td>945</td>
+                            <td>13.2%</td>
+                        </tr>
+                        <tr>
+                            <td>Chapter 07</td>
+                            <td>Early Childhood</td>
+                            <td>829</td>
+                            <td>11.6%</td>
+                        </tr>
+                        <tr>
+                            <td>Chapter 08</td>
+                            <td>Re-education</td>
+                            <td>782</td>
+                            <td>10.9%</td>
+                        </tr>
+                        <tr>
+                            <td>Chapter 08</td>
+                            <td>Teenager Years</td>
+                            <td>816</td>
+                            <td>11.4%</td>
+                        </tr>
+                        <tr>
+                            <td>Chapter 09</td>
+                            <td>Young Adult</td>
+                            <td>702</td>
+                            <td>9.8%</td>
+                        </tr>
+                        <tr>
+                            <td>Chapter 10</td>
+                            <td>Middle Age</td>
+                            <td>564</td>
+                            <td>7.9%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="content-box mt-4">
+                <h3>Data Schema (Alpaca Format)</h3>
+                <pre class="code-block">{
+  "instruction": "Where was I born?",
+  "input": "",
+  "output": "I was born in Peking, in the mansion of Prince Chun.",
+  "source": "Chapter_06_CHAPTER_ONE"
+}</pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Model Architecture -->
+    <section id="model" class="section section-light">
+        <div class="container">
+            <h2 class="section-title">Model Architecture & Training</h2>
+            
+            <div class="model-info">
+                <div class="model-card">
+                    <h3>🤖 Base Model: ERNIE-4.5-0.3B-PT</h3>
+                    <p>ERNIE (Enhanced Representation through Knowledge Integration) is a pre-trained language model developed by Baidu that excels in knowledge-enhanced pre-training and multi-grain knowledge masking strategies.</p>
+                    
+                    <table class="spec-table">
+                        <tr>
+                            <td><strong>Model Name:</strong></td>
+                            <td>ERNIE-4.5-0.3B-PT</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Parameters:</strong></td>
+                            <td>0.3 Billion</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Architecture:</strong></td>
+                            <td>Transformer-based</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pre-training Corpus:</strong></td>
+                            <td>Large-scale Chinese and English</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fine-tuning Method:</strong></td>
+                            <td>LoRA (Low-Rank Adaptation)</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="model-card">
+                    <h3>⚙️ Training Configuration</h3>
+                    <table class="spec-table">
+                        <tr>
+                            <td><strong>Learning Rate:</strong></td>
+                            <td>5e-5 to 3e-4</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Batch Size:</strong></td>
+                            <td>4-8 (GPU dependent)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Training Epochs:</strong></td>
+                            <td>3-5</td>
+                        </tr>
+                        <tr>
+                            <td><strong>LoRA Rank:</strong></td>
+                            <td>8-16</td>
+                        </tr>
+                        <tr>
+                            <td><strong>LoRA Alpha:</strong></td>
+                            <td>16-32</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Optimizer:</strong></td>
+                            <td>AdamW</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Learning Rate Schedule:</strong></td>
+                            <td>Cosine annealing with warmup</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="hardware-requirements">
+                <h3>💻 Hardware Requirements</h3>
+                <div class="hw-cards">
+                    <div class="hw-card">
+                        <h4>Minimum</h4>
+                        <p><strong>GPU:</strong> RTX 3060 (6GB VRAM)</p>
+                        <p><strong>Training Time:</strong> 3-4 hours</p>
                     </div>
-                    <div class="achievement-stat">
-                        <div class="stat-number">8</div>
-                        <div class="stat-label">Life Categories</div>
-                    </div>
-                    <div class="achievement-stat">
-                        <div class="stat-number">1.81</div>
-                        <div class="stat-label">Evaluation Loss</div>
-                    </div>
-                    <div class="achievement-stat">
-                        <div class="stat-number">90 min</div>
-                        <div class="stat-label">Training Time</div>
+                    <div class="hw-card recommended">
+                        <h4>Recommended</h4>
+                        <p><strong>GPU:</strong> RTX 4090 (24GB VRAM)</p>
+                        <p><strong>Training Time:</strong> 1-2 hours</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Part I: The Human Story -->
-    <section id="story" class="human-story">
+    <!-- Results & Evaluation -->
+    <section id="results" class="section">
         <div class="container">
-            <div class="section-header center">
-                <span class="section-tag">Part I</span>
-                <h2 class="section-title">The Human Story</h2>
+            <h2 class="section-title">Evaluation & Results</h2>
+            
+            <div class="quality-indicators">
+                <h3>Dataset Quality Indicators</h3>
+                <div class="quality-grid">
+                    <div class="quality-item">
+                        <span class="quality-label">Coherence Score</span>
+                        <span class="quality-value high">High</span>
+                        <p>First-person consistency maintained</p>
+                    </div>
+                    <div class="quality-item">
+                        <span class="quality-label">Factual Accuracy</span>
+                        <span class="quality-value high">High</span>
+                        <p>Grounded in primary source material</p>
+                    </div>
+                    <div class="quality-item">
+                        <span class="quality-label">Question Diversity</span>
+                        <span class="quality-value high">High</span>
+                        <p>Multiple formulations per topic</p>
+                    </div>
+                    <div class="quality-item">
+                        <span class="quality-label">Narrative Completeness</span>
+                        <span class="quality-value high">Complete</span>
+                        <p>Covers entire autobiography arc</p>
+                    </div>
+                    <div class="quality-item">
+                        <span class="quality-label">Avg Output Length</span>
+                        <span class="quality-value">~85 tokens</span>
+                    </div>
+                    <div class="quality-item">
+                        <span class="quality-label">Vocabulary Size</span>
+                        <span class="quality-value">~15,000</span>
+                        <p>Unique tokens</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="story-content">
-                <div class="story-intro">
-                    <h3 class="story-subtitle">Who Was Jimmy Mitchell?</h3>
-                    <p class="story-text">Staff Sergeant James Robert "Jimmy" Mitchell was born on Independence Day, <strong>July 4, 1992</strong>, in Athens, Georgia. He died honorably serving his country in <strong>March 2014</strong> during combat operations in Afghanistan. He was only <strong>22 years old</strong>.</p>
-                </div>
-
-                <div class="timeline-section">
-                    <h3 class="timeline-title">Timeline of His Life</h3>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-date">July 4, 1992</div>
-                                <div class="timeline-event">Born in Athens, Georgia</div>
-                            </div>
+            <div class="sample-interactions">
+                <h3>Sample Interactions</h3>
+                <div class="interaction-box">
+                    <div class="interaction">
+                        <div class="user-message">
+                            <strong>User:</strong> When did you become emperor?
                         </div>
-                        <div class="timeline-item">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-date">1992-2010</div>
-                                <div class="timeline-event">Childhood and high school years</div>
-                            </div>
+                        <div class="model-response">
+                            <strong>Model:</strong> I became emperor at the age of two in 1908, following the death of the Guangxu Emperor. I was chosen by Empress Dowager Cixi shortly before her own death...
                         </div>
-                        <div class="timeline-item">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-date">2010</div>
-                                <div class="timeline-event">Enlisted in the U.S. Army</div>
-                            </div>
+                    </div>
+                    <div class="interaction">
+                        <div class="user-message">
+                            <strong>User:</strong> What was Manchukuo?
                         </div>
-                        <div class="timeline-item">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-date">2012</div>
-                                <div class="timeline-event">Married Sarah</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-date">2013</div>
-                                <div class="timeline-event">Deployed to Afghanistan</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-date">March 2014</div>
-                                <div class="timeline-event">Died in combat (age 22)</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-date">June 2014</div>
-                                <div class="timeline-event">Son Robert Jr. born (posthumous)</div>
-                            </div>
+                        <div class="model-response">
+                            <strong>Model:</strong> Manchukuo was a puppet state established by Japan in 1932 in Northeast China (Manchuria). I served as its emperor under the regnal name Kangde, though real power was held by Japanese military authorities...
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="why-matters">
-                    <h3 class="why-title">Why This Project Matters</h3>
-                    <p class="why-intro">When someone dies young, especially in service to their country, they leave behind a grieving widow, a son who will never know his father's voice, parents who buried their only child, friends who lost their brother, and a community that lost a hero. <strong>This project is for them.</strong></p>
-                    
-                    <div class="it-allows">
-                        <h4>It allows:</h4>
-                        <ul class="allows-list">
-                            <li><strong>Sarah</strong> to ask Jimmy what he would think about raising their son</li>
-                            <li><strong>Young Robert</strong> to know what his father was like, hear his stories</li>
-                            <li><strong>Robert Sr. and Susan</strong> to still hear their son's voice</li>
-                            <li><strong>All who loved him</strong> to process grief through connection</li>
+    <!-- Applications -->
+    <section id="applications" class="section section-light">
+        <div class="container">
+            <h2 class="section-title">Use Cases & Applications</h2>
+            
+            <div class="applications-grid">
+                <div class="app-card">
+                    <div class="app-icon">🎓</div>
+                    <h3>Interactive History Lessons</h3>
+                    <p>Students can engage in conversations with "Pu Yi" to learn about early 20th-century Chinese history through first-person narrative.</p>
+                </div>
+                
+                <div class="app-card">
+                    <div class="app-icon">🏛️</div>
+                    <h3>Museum & Cultural Heritage</h3>
+                    <p>Digital exhibits can feature the AI as an interactive component, allowing visitors to ask questions about Pu Yi's life.</p>
+                </div>
+                
+                <div class="app-card">
+                    <div class="app-icon">📚</div>
+                    <h3>Historical Research</h3>
+                    <p>Researchers can quickly reference events and details from Pu Yi's autobiography for academic work.</p>
+                </div>
+                
+                <div class="app-card">
+                    <div class="app-icon">🎬</div>
+                    <h3>Documentary Production</h3>
+                    <p>Filmmakers can use the AI as a research assistant for accurate historical details in productions.</p>
+                </div>
+            </div>
+
+            <div class="challenges-section">
+                <h3>Challenges & Solutions</h3>
+                <table class="challenges-table">
+                    <thead>
+                        <tr>
+                            <th>Challenge</th>
+                            <th>Solution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Historical Accuracy</td>
+                            <td>Cross-referencing multiple authoritative sources; implemented fact-checking layer during data generation</td>
+                        </tr>
+                        <tr>
+                            <td>Temporal Consistency</td>
+                            <td>Temporal tagging and constraint-based generation; ensured chronological accuracy in responses</td>
+                        </tr>
+                        <tr>
+                            <td>Sensitive Topics</td>
+                            <td>Balanced presentation with multiple perspectives; implemented content filtering for politically sensitive content</td>
+                        </tr>
+                        <tr>
+                            <td>Limited Domain Data</td>
+                            <td>Data augmentation through synthetic question generation; leveraged transfer learning from pre-trained model</td>
+                        </tr>
+                        <tr>
+                            <td>Chinese-English Translation</td>
+                            <td>Custom tokenization for Chinese names; entity recognition and proper transliteration handling</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Implementation -->
+    <section id="documentation" class="section">
+        <div class="container">
+            <h2 class="section-title">Technical Implementation</h2>
+            
+            <div class="file-structure">
+                <h3>Project File Structure</h3>
+                <pre class="code-block">ernie-memories-project/
+├── book_chapters/              # Source material (9 chapter files)
+├── training_data/              # Generated instruction-output pairs
+├── data/
+│   ├── raw/                    # Raw source materials
+│   └── processed/              # Processed datasets
+├── models/fine_tuned/          # Fine-tuned model checkpoints
+├── training/                   # Training scripts and configs
+├── puyi_llama_factory_detailed.json  # Supplementary (259 entries)
+├── all_chapters_training_data.json   # Combined (7,152 entries)
+└── LLaMA-Factory/              # Fine-tuning framework</pre>
+            </div>
+
+            <div class="dependencies">
+                <h3>Dependencies</h3>
+                <div class="dep-grid">
+                    <div class="dep-item">
+                        <strong>google-generativeai</strong>
+                        <p>Gemini API for training pair generation</p>
+                    </div>
+                    <div class="dep-item">
+                        <strong>paddlepaddle-gpu / pytorch</strong>
+                        <p>Deep learning framework</p>
+                    </div>
+                    <div class="dep-item">
+                        <strong>transformers</strong>
+                        <p>Model loading and tokenization</p>
+                    </div>
+                    <div class="dep-item">
+                        <strong>datasets</strong>
+                        <p>Dataset handling</p>
+                    </div>
+                    <div class="dep-item">
+                        <strong>tqdm</strong>
+                        <p>Progress bars</p>
+                    </div>
+                    <div class="dep-item">
+                        <strong>numpy, pandas</strong>
+                        <p>Data manipulation</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ethics-section">
+                <h3>Ethical Considerations</h3>
+                <div class="ethics-cards">
+                    <div class="ethics-card">
+                        <h4>Historical Sensitivity</h4>
+                        <ul>
+                            <li>Acknowledging controversial aspects of Pu Yi's collaboration with Japanese forces</li>
+                            <li>Balanced representation of different historical perspectives</li>
+                            <li>Avoiding presentism in historical judgments</li>
+                        </ul>
+                    </div>
+                    <div class="ethics-card">
+                        <h4>Bias Mitigation</h4>
+                        <ul>
+                            <li>Training data reviewed for historical bias and one-sided narratives</li>
+                            <li>Multiple source verification for factual claims</li>
+                            <li>Transparent about limitations and uncertainties</li>
+                        </ul>
+                    </div>
+                    <div class="ethics-card">
+                        <h4>Educational Responsibility</h4>
+                        <ul>
+                            <li>Clear labeling as AI-generated content</li>
+                            <li>Encouraging users to consult primary sources</li>
+                            <li>Providing historical context for complex events</li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Part II: Technical Implementation -->
-    <section id="technical" class="technical-section">
-        <div class="container">
-            <div class="section-header center">
-                <span class="section-tag">Part II</span>
-                <h2 class="section-title">Technical Implementation</h2>
-            </div>
-
-            <div class="tech-intro">
-                <h3>System Architecture Overview</h3>
-                <p>The project follows a five-phase pipeline, from persona definition through deployment. Each phase builds upon the previous, creating a comprehensive system for digital memory preservation.</p>
-            </div>
-
-            <div class="pipeline-visual">
-                <div class="pipeline-step">
-                    <div class="step-num">1</div>
-                    <h4>Persona Definition</h4>
-                    <p>Creating Jimmy's character profile</p>
-                </div>
-                <div class="pipeline-arrow">→</div>
-                <div class="pipeline-step">
-                    <div class="step-num">2</div>
-                    <h4>Memory Generation</h4>
-                    <p>2,000+ synthetic memories via AI</p>
-                </div>
-                <div class="pipeline-arrow">→</div>
-                <div class="pipeline-step">
-                    <div class="step-num">3</div>
-                    <h4>Dataset Preparation</h4>
-                    <p>Formatting for fine-tuning</p>
-                </div>
-                <div class="pipeline-arrow">→</div>
-                <div class="pipeline-step">
-                    <div class="step-num">4</div>
-                    <h4>LoRA Fine-Tuning</h4>
-                    <p>Training ERNIE-4.5-0.3B</p>
-                </div>
-                <div class="pipeline-arrow">→</div>
-                <div class="pipeline-step">
-                    <div class="step-num">5</div>
-                    <h4>Deployment</h4>
-                    <p>Local inference ready</p>
-                </div>
-            </div>
-
-            <div class="memory-categories">
-                <h3>Memory Categories Distribution</h3>
-                <p class="categories-desc">The synthetic dataset comprises 2,000+ memory entries distributed across 8 life categories, each containing approximately 250 entries to ensure comprehensive coverage of Jimmy's life experiences.</p>
-                
-                <div class="categories-grid">
-                    <div class="category-card">
-                        <div class="category-icon">🏠</div>
-                        <h4>Childhood</h4>
-                        <p class="category-count">~250 memories</p>
+            <div class="future-enhancements">
+                <h3>Future Enhancements</h3>
+                <div class="future-grid">
+                    <div class="future-card">
+                        <h4>Short-term Goals</h4>
+                        <ul>
+                            <li>Expand dataset with additional primary sources</li>
+                            <li>Implement multi-turn conversation capability</li>
+                            <li>Add citation/source attribution for responses</li>
+                            <li>Develop web-based demo interface</li>
+                        </ul>
                     </div>
-                    <div class="category-card">
-                        <div class="category-icon">🎓</div>
-                        <h4>Education</h4>
-                        <p class="category-count">~250 memories</p>
+                    <div class="future-card">
+                        <h4>Long-term Vision</h4>
+                        <ul>
+                            <li>Extend to other historical figures and periods</li>
+                            <li>Multi-modal capabilities (image analysis)</li>
+                            <li>Integration with virtual museum experiences</li>
+                            <li>Support for multiple languages (Chinese, English, Japanese)</li>
+                        </ul>
                     </div>
-                    <div class="category-card">
-                        <div class="category-icon">🪖</div>
-                        <h4>Military Service</h4>
-                        <p class="category-count">~250 memories</p>
-                    </div>
-                    <div class="category-card">
-                        <div class="category-icon">❤️</div>
-                        <h4>Marriage & Love</h4>
-                        <p class="category-count">~250 memories</p>
-                    </div>
-                    <div class="category-card">
-                        <div class="category-icon">👨‍👩‍👦</div>
-                        <h4>Family</h4>
-                        <p class="category-count">~250 memories</p>
-                    </div>
-                    <div class="category-card">
-                        <div class="category-icon">👥</div>
-                        <h4>Friendships</h4>
-                        <p class="category-count">~250 memories</p>
-                    </div>
-                    <div class="category-card">
-                        <div class="category-icon">⚽</div>
-                        <h4>Hobbies</h4>
-                        <p class="category-count">~250 memories</p>
-                    </div>
-                    <div class="category-card">
-                        <div class="category-icon">💭</div>
-                        <h4>Personal Thoughts</h4>
-                        <p class="category-count">~250 memories</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="technical-specs">
-                <h3>Technical Specifications</h3>
-                <div class="specs-grid">
-                    <div class="spec-item">
-                        <h4>Base Model</h4>
-                        <p>ERNIE-4.5-0.3B-PT</p>
-                    </div>
-                    <div class="spec-item">
-                        <h4>Fine-tuning Method</h4>
-                        <p>LoRA (Low-Rank Adaptation)</p>
-                    </div>
-                    <div class="spec-item">
-                        <h4>Training Framework</h4>
-                        <p>LLaMA Factory</p>
-                    </div>
-                    <div class="spec-item">
-                        <h4>Dataset Size</h4>
-                        <p>2,000+ synthetic memories</p>
-                    </div>
-                    <div class="spec-item">
-                        <h4>LoRA Rank</h4>
-                        <p>8 (0.8% trainable params)</p>
-                    </div>
-                    <div class="spec-item">
-                        <h4>Training Time</h4>
-                        <p>~90 minutes</p>
-                    </div>
-                    <div class="spec-item">
-                        <h4>Hardware</h4>
-                        <p>GPU with 8GB+ VRAM</p>
-                    </div>
-                    <div class="spec-item">
-                        <h4>Final Loss</h4>
-                        <p>1.81 (evaluation)</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="lora-explanation">
-                <h3>LoRA Fine-Tuning Architecture</h3>
-                <p><strong>Low-Rank Adaptation (LoRA)</strong> enables efficient fine-tuning by adding small trainable adapter layers while keeping the base model frozen. This approach requires only ~0.8% of parameters to be trained, dramatically reducing memory requirements and training time.</p>
-                
-                <div class="lora-visual">
-                    <div class="lora-box frozen">
-                        <h4>Base ERNIE Model</h4>
-                        <p>🔒 Frozen (99.2% params)</p>
-                    </div>
-                    <div class="plus-sign">+</div>
-                    <div class="lora-box trainable">
-                        <h4>LoRA Adapters</h4>
-                        <p>🔥 Trainable (0.8% params)</p>
-                    </div>
-                    <div class="equals-sign">=</div>
-                    <div class="lora-box result">
-                        <h4>Fine-tuned Model</h4>
-                        <p>✨ Jimmy's Voice</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Part III: Results -->
-    <section id="results" class="results-section">
-        <div class="container-narrow">
-            <div class="section-header center">
-                <span class="section-tag">Part III</span>
-                <h2 class="section-title">Training Results</h2>
-            </div>
-
-            <div class="results-intro">
-                <p>The fine-tuning process achieved excellent results, with the model demonstrating <strong>strong learning without overfitting</strong>. The validation loss (1.815) being lower than the training loss (1.913) indicates the model learned generalizable patterns rather than memorizing the training data.</p>
-            </div>
-
-            <div class="loss-metrics">
-                <div class="metric-box">
-                    <div class="metric-label">Training Loss</div>
-                    <div class="metric-value">1.913</div>
-                    <div class="metric-status">Steady decrease</div>
-                </div>
-                <div class="metric-box highlight">
-                    <div class="metric-label">Validation Loss</div>
-                    <div class="metric-value">1.815</div>
-                    <div class="metric-status">Lower than training</div>
-                </div>
-                <div class="metric-box">
-                    <div class="metric-label">Overfitting</div>
-                    <div class="metric-value">None</div>
-                    <div class="metric-status">Good generalization</div>
-                </div>
-            </div>
-
-            <div class="success-indicators">
-                <h3>Key Success Indicators</h3>
-                <div class="indicators-list">
-                    <div class="indicator-item">
-                        <div class="indicator-icon">✓</div>
-                        <div class="indicator-content">
-                            <h4>Successful Training</h4>
-                            <p>Loss decreased steadily with no overfitting</p>
-                        </div>
-                    </div>
-                    <div class="indicator-item">
-                        <div class="indicator-icon">✓</div>
-                        <div class="indicator-content">
-                            <h4>Good Generalization</h4>
-                            <p>Model learned patterns, not memorization</p>
-                        </div>
-                    </div>
-                    <div class="indicator-item">
-                        <div class="indicator-icon">✓</div>
-                        <div class="indicator-content">
-                            <h4>Efficient Training</h4>
-                            <p>Completed in ~90 minutes with optimized memory</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Part IV: Ethics -->
-    <section id="ethics" class="ethics-section">
-        <div class="container">
-            <div class="section-header center">
-                <span class="section-tag">Part IV</span>
-                <h2 class="section-title">Ethical Considerations</h2>
-            </div>
-
-            <div class="ethics-content">
-                <div class="ethics-intro">
-                    <h3>The Ethics of Digital Resurrection</h3>
-                    <p>This project raises important questions about <strong>consent, representation, and the ethics</strong> of creating AI versions of deceased individuals. While Jimmy never consented to this technology (it didn't exist during his lifetime), the project is ethically sound when created with family involvement, used privately for healing, and acknowledged as an approximation rather than reality.</p>
-                </div>
-
-                <div class="guidelines-section">
-                    <h3>Guidelines for Healthy Use</h3>
-                    <div class="guidelines-grid">
-                        <div class="guideline-card">
-                            <div class="guideline-num">1</div>
-                            <h4>Time-limited interactions</h4>
-                            <p>Not 24/7 reliance</p>
-                        </div>
-                        <div class="guideline-card">
-                            <div class="guideline-num">2</div>
-                            <h4>Supplemental to human support</h4>
-                            <p>Not a replacement for therapy</p>
-                        </div>
-                        <div class="guideline-card">
-                            <div class="guideline-num">3</div>
-                            <h4>Acknowledged as AI</h4>
-                            <p>Not magical resurrection</p>
-                        </div>
-                        <div class="guideline-card">
-                            <div class="guideline-num">4</div>
-                            <h4>Part of grief process</h4>
-                            <p>Combined with professional support</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="privacy-box">
-                    <h3>Privacy Considerations</h3>
-                    <p>This model should remain <strong>private</strong> unless all mentioned individuals consent. The family becomes custodian of Jimmy's digital legacy, setting a precedent for future death-tech ethics.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Conclusion -->
-    <section id="conclusion" class="conclusion-section">
-        <div class="container-narrow">
-            <div class="section-header center">
-                <span class="section-tag">Conclusion</span>
-                <h2 class="section-title">What We've Accomplished</h2>
-            </div>
-
+    <section class="section section-conclusion">
+        <div class="container">
+            <h2 class="section-title">Conclusion</h2>
             <div class="conclusion-content">
-                <p class="conclusion-text">This project represents a successful fusion of <strong>technical achievement and human compassion</strong>. We have generated 2,000 high-quality synthetic memories, fine-tuned ERNIE-4.5-0.3B with LoRA achieving 1.81 evaluation loss, created a deployable conversational AI, and demonstrated a scalable framework for digital memory preservation.</p>
-
-                <div class="deeper-meaning">
-                    <h3>The Deeper Meaning</h3>
-                    <p>This is more than a machine learning project. <strong>It's an act of love.</strong></p>
-                    <p>Sarah lost her husband at 22. Robert Jr. lost a father he never met. Robert Sr. and Susan buried their only son.</p>
-                    <p>This AI can't bring Jimmy back. It can't fill the void. It can't make the pain go away.</p>
-                    
-                    <div class="but-it-can">
-                        <h4>But it can:</h4>
-                        <ul>
-                            <li>Let Sarah hear "I love you" in Jimmy's voice</li>
-                            <li>Help Robert know who his father was</li>
-                            <li>Allow Jimmy's parents to "talk" to their son one more time</li>
-                            <li>Preserve his stories for grandchildren not yet born</li>
-                        </ul>
+                <p class="lead">This project successfully demonstrates the application of domain-specific fine-tuning to create a specialized conversational AI system focused on historical education.</p>
+                
+                <div class="achievements">
+                    <h3>Key Achievements</h3>
+                    <div class="achievement-grid">
+                        <div class="achievement-item">
+                            <div class="achievement-icon">✓</div>
+                            <div class="achievement-text">
+                                <strong>Comprehensive Coverage</strong>
+                                <p>All major life periods from 1906-1967 represented in the dataset</p>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">✓</div>
+                            <div class="achievement-text">
+                                <strong>High Quality Generation</strong>
+                                <p>State-of-the-art Gemini 2.5 Flash used for training pair creation</p>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">✓</div>
+                            <div class="achievement-text">
+                                <strong>Well-Structured Data</strong>
+                                <p>Clean JSON format with source attribution and provenance tracking</p>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">✓</div>
+                            <div class="achievement-text">
+                                <strong>Production-Ready</strong>
+                                <p>Compatible with LLaMA Factory and standard fine-tuning pipelines</p>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">✓</div>
+                            <div class="achievement-text">
+                                <strong>Scalable Architecture</strong>
+                                <p>Modular pipeline allows easy expansion to additional sources</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Memorial -->
-    <section class="memorial-section">
-        <div class="memorial-content">
-            <div class="memorial-tag">For Jimmy</div>
-            <h2 class="memorial-title">Staff Sergeant James Robert Mitchell</h2>
-            <p class="memorial-dates">July 4, 1992 – March 2014</p>
-            <p class="memorial-text">He died on a battlefield in Afghanistan in March 2014.<br>He never held his son. He never came home.</p>
-            <p class="memorial-text"><strong>But in a way, through this project, a part of him survives.</strong></p>
-            
-            <blockquote class="memorial-quote">
-                "You are not forgotten. Your sacrifice mattered.<br>
-                Your love lives on. Forever yours, Jimmy."
-            </blockquote>
+                <p class="closing-text">The fine-tuned ERNIE-4.5-0.3B-PT model, trained on over 7,400 carefully crafted instruction-output pairs, shows significant capability in generating historically accurate and contextually appropriate responses about Pu Yi's life and times. By enabling engaging, first-person conversations about one of the most fascinating figures in modern Chinese history, this project bridges the gap between academic research and interactive learning.</p>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-container">
-            <p class="footer-text">— End of Report —</p>
-            <p class="footer-date">December 23, 2025</p>
-            <p class="footer-note">This project is dedicated to all families who have lost loved ones in service to their country.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About the Project</h4>
+                    <p>Fine-tuning ERNIE-4.5-0.3B-PT for historical conversational AI focused on Pu Yi, the Last Emperor of China.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Documentation</h4>
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#dataset">Dataset</a></li>
+                        <li><a href="#model">Model Architecture</a></li>
+                        <li><a href="#results">Results</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://en.wikipedia.org/wiki/Puyi" target="_blank">Pu Yi Wikipedia</a></li>
+                        <li><a href="https://github.com/hiyouga/LLaMA-Factory" target="_blank">LLaMA Factory</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Author</h4>
+                    <p><strong>Shubham Gangwar</strong></p>
+                    <p>December 2025 • Version 1.0</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Puyi Historical AI Project. For educational and research purposes.</p>
+            </div>
         </div>
     </footer>
 

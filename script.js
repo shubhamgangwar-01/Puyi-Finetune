@@ -1,4 +1,4 @@
-// Smooth scrolling for navigation links
+// Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -12,36 +12,34 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Active navigation state on scroll
-let sections = document.querySelectorAll('section[id]');
-let navLinks = document.querySelectorAll('.nav-links a');
-
+// Add active state to navigation on scroll
 window.addEventListener('scroll', () => {
     let current = '';
+    const sections = document.querySelectorAll('.section');
     
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
-        if (window.pageYOffset >= (sectionTop - 200)) {
+        if (window.pageYOffset >= sectionTop - 200) {
             current = section.getAttribute('id');
         }
     });
 
-    navLinks.forEach(link => {
-        link.style.color = '';
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.classList.remove('active');
         if (link.getAttribute('href') === `#${current}`) {
-            link.style.color = 'var(--accent-gold)';
+            link.classList.add('active');
         }
     });
 });
 
-// Fade in animation on scroll
+// Animate elements on scroll
 const observerOptions = {
-    threshold: 0.15,
+    threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
 };
 
-const fadeInObserver = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
@@ -50,32 +48,94 @@ const fadeInObserver = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe elements for fade-in animation
+// Observe all cards and sections
 document.addEventListener('DOMContentLoaded', () => {
     const animatedElements = document.querySelectorAll(
-        '.achievement-stat, .timeline-item, .category-card, .spec-item, .guideline-card, .indicator-item, .pipeline-step'
+        '.metric-card, .info-card, .pipeline-stage, .app-card, .model-card, .quality-item, .achievement-item'
     );
     
     animatedElements.forEach(el => {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
+        el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        fadeInObserver.observe(el);
+        observer.observe(el);
     });
 });
 
-// Scroll progress indicator
+// Mobile menu toggle (if needed for responsive)
+const createMobileMenu = () => {
+    const nav = document.querySelector('.navbar');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (window.innerWidth <= 768) {
+        if (!document.querySelector('.menu-toggle')) {
+            const menuToggle = document.createElement('button');
+            menuToggle.className = 'menu-toggle';
+            menuToggle.innerHTML = '☰';
+            menuToggle.style.cssText = `
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: var(--primary-color);
+                display: none;
+            `;
+            
+            nav.querySelector('.container').insertBefore(menuToggle, navMenu);
+            
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+    }
+};
+
+window.addEventListener('resize', createMobileMenu);
+createMobileMenu();
+
+// Copy code block functionality
+document.querySelectorAll('.code-block').forEach(block => {
+    const copyButton = document.createElement('button');
+    copyButton.textContent = 'Copy';
+    copyButton.style.cssText = `
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 5px 10px;
+        background: rgba(255,255,255,0.2);
+        color: white;
+        border: 1px solid rgba(255,255,255,0.3);
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.8rem;
+    `;
+    
+    const wrapper = document.createElement('div');
+    wrapper.style.position = 'relative';
+    block.parentNode.insertBefore(wrapper, block);
+    wrapper.appendChild(block);
+    wrapper.appendChild(copyButton);
+    
+    copyButton.addEventListener('click', () => {
+        navigator.clipboard.writeText(block.textContent);
+        copyButton.textContent = 'Copied!';
+        setTimeout(() => {
+            copyButton.textContent = 'Copy';
+        }, 2000);
+    });
+});
+
+// Add scroll progress indicator
 const createScrollIndicator = () => {
     const indicator = document.createElement('div');
     indicator.style.cssText = `
         position: fixed;
         top: 0;
         left: 0;
-        height: 4px;
-        background: linear-gradient(90deg, var(--accent-gold) 0%, var(--accent-bronze) 100%);
+        height: 3px;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
         z-index: 9999;
         transition: width 0.1s;
-        box-shadow: 0 2px 4px rgba(212, 175, 55, 0.3);
     `;
     document.body.appendChild(indicator);
     
@@ -88,164 +148,7 @@ const createScrollIndicator = () => {
 
 createScrollIndicator();
 
-// Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const heroSection = document.querySelector('.hero-section');
-    if (heroSection) {
-        const scrollPosition = window.pageYOffset;
-        heroSection.style.transform = `translateY(${scrollPosition * 0.5}px)`;
-        heroSection.style.opacity = 1 - (scrollPosition / 700);
-    }
-});
-
-// Counter animation for stats
-const animateCounter = (element, target, duration = 2000) => {
-    let startTimestamp = null;
-    const start = 0;
-    const end = target;
-    
-    const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        
-        // Check if the element contains a decimal
-        if (target.toString().includes('.')) {
-            element.textContent = (progress * (end - start) + start).toFixed(2);
-        } else {
-            element.textContent = Math.floor(progress * (end - start) + start);
-        }
-        
-        if (progress < 1) {
-            window.requestAnimationFrame(step);
-        }
-    };
-    
-    window.requestAnimationFrame(step);
-};
-
-// Observe stats for counter animation
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting && !entry.target.dataset.animated) {
-            entry.target.dataset.animated = 'true';
-            const valueElement = entry.target.querySelector('.stat-number, .metric-value');
-            if (valueElement) {
-                const text = valueElement.textContent;
-                const value = parseFloat(text.replace(/[^0-9.]/g, ''));
-                if (!isNaN(value)) {
-                    valueElement.textContent = '0';
-                    setTimeout(() => {
-                        animateCounter(valueElement, value);
-                        // Add back any suffixes
-                        if (text.includes('min')) {
-                            setTimeout(() => {
-                                valueElement.textContent = value + ' min';
-                            }, 2000);
-                        } else if (text.includes('+')) {
-                            setTimeout(() => {
-                                valueElement.textContent = value + '+';
-                            }, 2000);
-                        }
-                    }, 200);
-                }
-            }
-        }
-    });
-}, { threshold: 0.5 });
-
-document.addEventListener('DOMContentLoaded', () => {
-    const statElements = document.querySelectorAll('.achievement-stat, .metric-box');
-    statElements.forEach(el => statsObserver.observe(el));
-});
-
-// Add subtle hover effect to cards
-document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.category-card, .guideline-card, .spec-item');
-    
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transition = 'all 0.3s ease';
-        });
-    });
-});
-
-// Console message
-console.log('%c Digital Immortality Project ', 'background: #1a1a2e; color: #d4af37; font-size: 24px; padding: 12px; font-weight: bold;');
-console.log('%c The Staff Sergeant Jimmy Mitchell Project ', 'font-size: 14px; color: #6c757d; padding: 4px;');
-console.log('%c "In memory of those who served" ', 'font-size: 12px; color: #999; font-style: italic; padding: 4px;');
-
-// Add fade-in to hero content
-document.addEventListener('DOMContentLoaded', () => {
-    const heroContent = document.querySelector('.hero-content');
-    if (heroContent) {
-        heroContent.style.opacity = '0';
-        heroContent.style.transform = 'translateY(30px)';
-        
-        setTimeout(() => {
-            heroContent.style.transition = 'opacity 1s ease, transform 1s ease';
-            heroContent.style.opacity = '1';
-            heroContent.style.transform = 'translateY(0)';
-        }, 200);
-    }
-});
-
-// Memorial section special effect
-const memorialObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('memorial-visible');
-            const quote = entry.target.querySelector('.memorial-quote');
-            if (quote) {
-                setTimeout(() => {
-                    quote.style.opacity = '1';
-                    quote.style.transform = 'translateY(0)';
-                }, 500);
-            }
-        }
-    });
-}, { threshold: 0.3 });
-
-document.addEventListener('DOMContentLoaded', () => {
-    const memorial = document.querySelector('.memorial-section');
-    if (memorial) {
-        memorialObserver.observe(memorial);
-        
-        const quote = memorial.querySelector('.memorial-quote');
-        if (quote) {
-            quote.style.opacity = '0';
-            quote.style.transform = 'translateY(20px)';
-            quote.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        }
-    }
-});
-
-// Mobile menu toggle (if needed)
-const createMobileMenu = () => {
-    if (window.innerWidth <= 768) {
-        const nav = document.querySelector('.nav');
-        const navLinks = document.querySelector('.nav-links');
-        
-        if (!document.querySelector('.mobile-toggle')) {
-            const toggle = document.createElement('button');
-            toggle.className = 'mobile-toggle';
-            toggle.innerHTML = '☰';
-            toggle.style.cssText = `
-                background: none;
-                border: none;
-                font-size: 1.8rem;
-                color: var(--primary-dark);
-                cursor: pointer;
-                display: none;
-            `;
-            
-            nav.querySelector('.nav-container').appendChild(toggle);
-            
-            toggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-        }
-    }
-};
-
-window.addEventListener('resize', createMobileMenu);
-createMobileMenu();
+// Console log for developers
+console.log('%c Puyi Historical AI Project ', 'background: #667eea; color: white; font-size: 20px; padding: 10px;');
+console.log('%c Fine-Tuning ERNIE-4.5-0.3B-PT for Historical Conversational AI ', 'font-size: 12px; color: #666;');
+console.log('%c Author: Shubham Gangwar | December 2025 ', 'font-size: 10px; color: #999;');
